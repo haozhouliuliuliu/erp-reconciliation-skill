@@ -201,8 +201,8 @@ app_paths.py         统一路径解析（按程序自身位置，不用 cwd）
 ## 当前局限
 
 1. **完整源码未公开**。源码已取得并用于验证分析，但它对接的是**具体客户的 ERP 系统**，
-   含该系统与相关业务实体的标识。全量发布需要客户/雇主层面的确认，超出本仓库范围。
-   仓库中只收录了**少量经逐行审查的代码节选**（见 [docs/code-notes.md](docs/code-notes.md)）。
+   且**公开发布源码节选的授权尚未确认**。因此仓库中**不含任何原始代码**——
+   [docs/code-notes.md](docs/code-notes.md) 里的伪代码为本次独立编写。
 2. **没有可运行的实现**。仓库提供的是说明、规则与规格，不是能跑起来的程序——
    因此 [tests/](tests/test-reconciliation-rules.md) 是规格而非测试结果。
 3. **强依赖母版**。模板坐标由配置驱动；客户改一次表结构就要改配置。
@@ -230,7 +230,7 @@ docs/workflow.md
 # 确定性规则：去重键、汇总键、单价模式、日期列、失败语义
 docs/business-rules.md
 
-# 经审查的代码节选（ExtJS 切换语义、同名按钮处理）
+# 技术要点：ExtJS 切换语义、同名按钮处理（含独立编写的伪代码）
 docs/code-notes.md
 
 # 本次是怎么分析出这些的，源码如何验证了分析，以及公开边界
@@ -263,7 +263,7 @@ docs/
   architecture.md              模块划分、技术构成、证据来源
   workflow.md                  人工流程 vs 自动流程
   business-rules.md            确定性业务规则
-  code-notes.md                经审查的代码节选（ExtJS 切换语义等）
+  code-notes.md                技术要点：ExtJS 切换语义等（伪代码，非原始源码）
   analysis-method.md           分析方法、源码交叉验证、公开边界
 examples/
   sample-reconciliation-data.xlsx   虚构示例数据
