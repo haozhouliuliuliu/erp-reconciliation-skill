@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+
+# 示例数据的再生成产物（示例文件本身是提交的）
+examples/~$*.xlsx
+examples/*.tmp
+
+# 原始资料与打包产物 —— 绝不入库
+# （本仓库只放脱敏说明，原始业务资料仅本地使用）
+对账资料/
+源码/
+*.spec
+accounts.json
+statement_config.json
+*_源码.zip
+*_便携版.zip
+*.exe
+_internal/
+
+# 真实业务数据 —— 绝不入库
+*对账单*.xlsx
+*产品基础资料*.xlsx
+*母版*.xlsx
+当前月份记录.csv
+storage_state.json
+profiles/
+
+# 本地分析产物
+erp-structure.json
+*.disasm.txt
+*.pyc
+decompiled/
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
