@@ -57,16 +57,20 @@
 
 ## 已确认的技术构成
 
-以下每一条都是从**打包产物的字节码里直接读出来的常量、函数签名与模块文档**，不是推测：
+以下每一条都是从**打包产物的字节码**读出、并由**源码**确认的事实，不是推测：
 
-| 组件 | 事实 | 证据 |
+| 组件 | 事实 | 来源 |
 |---|---|---|
-| 运行环境 | CPython **3.13**，PyInstaller 打包（onedir） | `python313.dll`、打包归档元信息 |
-| 浏览器自动化 | **Playwright** 驱动系统 **Microsoft Edge**，使用持久化 Profile | string 常量中的 Edge 安装路径与注册表键 |
-| Excel 读写 | **openpyxl** | 打包依赖清单 |
-| 弹窗交互 | **PowerShell + WinForms**（`-NoProfile -ExecutionPolicy Bypass`） | string 常量中的 `System.Windows.Forms` 脚本 |
-| 界面框架（被操作系统） | **ExtJS**（树形菜单 + 工具栏按钮） | 选择器常量命中 `x-tree-*` 系列 ExtJS 组件类名 |
-| 数据交换格式 | CSV（采集）+ JSON（报告） | 输出文件名常量 |
+| 运行环境 | CPython **3.13**，PyInstaller 打包（onedir） | 字节码 + 源码 spec |
+| 浏览器自动化 | **Playwright** 驱动系统 **Microsoft Edge**，使用持久化 Profile | 字节码 |
+| Excel 读写 | **openpyxl** | 字节码 |
+| 弹窗交互 | **PowerShell + WinForms**（`-NoProfile -ExecutionPolicy Bypass`） | 字节码 |
+| 界面框架（被操作系统） | **ExtJS**（树形菜单 + 工具栏按钮） | 字节码 |
+| 数据交换格式 | CSV（采集）+ JSON（报告） | 字节码 |
+
+> 证据来源的完整区分（哪些来自字节码、哪些由源码交叉验证、哪些是推断）见
+> [docs/architecture.md](docs/architecture.md#证据来源说明先读这段)。
+> 注：源码与打包产物**不是同一修订版**，差在一个 24 行的函数。
 
 **程序不做的**：不调用任何视觉模型，不训练模型，不访问除 ERP 之外的网络服务。
 
